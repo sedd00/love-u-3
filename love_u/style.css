@@ -1,0 +1,177 @@
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #f8cdda, #1e3c72); /* Soft gradient background */
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+}
+
+/* Header Styling */
+h1 {
+    font-size: 4rem;
+    font-family: 'Great Vibes', cursive;
+    color: #ff6f61;
+    text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.3);
+    margin-bottom: 1.5rem;
+    letter-spacing: 2px;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Paragraph Styling */
+p {
+    font-size: 1.5rem;
+    color: #fff;
+    margin-bottom: 2rem;
+    font-weight: 300;
+    line-height: 1.6;
+    opacity: 0.9;
+}
+
+/* Button Styling */
+button {
+    font-size: 1.2rem;
+    padding: 18px 35px;
+    margin: 10px;
+    background-color: #ff6f61;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #d94347;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+}
+
+button:focus {
+    outline: none;
+}
+
+/* Message Styling */
+.messages {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+
+.message {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #fff;
+    padding: 30px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+    margin: 20px 0;
+    max-width: 80%;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.message img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    margin-bottom: 15px;
+    border: 5px solid #fff;
+}
+
+.message.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.message:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Heart Animation */
+#heartContainer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
+}
+
+.heart {
+    position: absolute;
+    width: 4vw;
+    height: 4vw;
+    background-image: url('heart.png'); /* Replace with your heart image URL */
+    background-size: cover;
+    animation: heartAnimation 5s infinite ease-in;
+    opacity: 0;
+}
+
+@keyframes heartAnimation {
+    0% {
+        transform: scale(0) translateY(0);
+        opacity: 1;
+    }
+    50% {
+        transform: translateY(-150px) scale(1.5);
+        opacity: 0.7;
+    }
+    100% {
+        transform: translateY(-300px) scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* Keyframes for fade-in */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 3rem;
+    }
+
+    p {
+        font-size: 1.2rem;
+    }
+
+    button {
+        font-size: 1rem;
+        padding: 14px 28px;
+    }
+
+    .message {
+        font-size: 1.2rem;
+        padding: 20px;
+        margin: 10px 0;
+    }
+}

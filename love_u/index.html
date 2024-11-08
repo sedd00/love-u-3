@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Secret Love Message</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <audio id="backgroundMusic" loop autoplay>
+        <source src="romantic_music.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+    <div class="container">
+        <h1>Hello, My Love!</h1>
+        <p>I've got something special just for you.</p>
+        <button onclick="showMessage1()">Reveal Secret</button>
+        <button onclick="showMessage2()">Another Surprise</button>
+        <button onclick="showMessage3()">One More Thing</button>
+        <div class="messages">
+            <p class="message hidden" id="loveMessage1">
+                <img src="sunshine.jpg" alt="Sunshine" class="love-image">
+                You are my sunshine!
+            </p>
+            <p class="message hidden" id="loveMessage2">
+                <img src="moon.jpg" alt="Moon" class="love-image">
+                I love you to the moon and back!
+            </p>
+            <p class="message hidden" id="loveMessage3">
+                <img src="stars.jpg" alt="Stars" class="love-image">
+                You light up my night like the stars!
+            </p>
+        </div>
+    </div>
+    <div id="heartContainer"></div>
+
+    <script>
+        window.onload = function() {
+            let music = document.getElementById("backgroundMusic");
+            music.play();
+            createHearts();
+        };
+
+        function showMessage1() {
+            let message = document.getElementById("loveMessage1");
+            message.classList.remove("hidden");
+        }
+
+        function showMessage2() {
+            let message = document.getElementById("loveMessage2");
+            message.classList.remove("hidden");
+        }
+
+        function showMessage3() {
+            let message = document.getElementById("loveMessage3");
+            message.classList.remove("hidden");
+        }
+
+        function createHearts() {
+            const heartContainer = document.getElementById("heartContainer");
+            for (let i = 0; i < 20; i++) {
+                const heart = document.createElement("div");
+                heart.classList.add("heart");
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = Math.random() * 3 + 2 + "s";
+                heartContainer.appendChild(heart);
+            }
+        }
+    </script>
+</body>
+</html>
